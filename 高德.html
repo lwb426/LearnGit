@@ -1,0 +1,45 @@
+<!doctype html>
+  <head>
+    <style type="text/css">
+      body,html,#container{
+     
+     
+z-index: 99; height: 356px; width: 396px; top: 0px; left: 0px;
+      }
+      
+    </style>
+    <title>my map</title>
+  </head>
+  <body>
+    
+   <div id="container" tabindex="0"></div>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=513021e9bf4ab740096f633d9a521d29"></script>
+    <script type="text/javascript">
+      //创建地图
+        var map = new AMap.Map('container',{
+            mapStyle:'normal',//styles/地图样式ID
+            resizeEnable: true,
+            zoom: 10,
+            center: [116.480983, 40.0958]
+        });
+       
+    //JavaScript API提供了工具条、比例尺、定位、鹰眼、基本图层切换等常用的控件，使用的时候需要通过plugin方法将插件的功能引入，然后进行控件的初始化和添加：
+    
+       AMap.plugin(['AMap.ToolBar','AMap.Scale','AMap.OverView','AMap.MapType','AMap.Geolocation' ],
+       function(){
+        map.addControl(new AMap.ToolBar());//工具条
+        map.addControl(new AMap.Scale());//比例尺
+        map.addControl(new AMap.MapType());//图层切换
+        map.addControl(new AMap.Geolocation());//定位
+        map.addControl(new AMap.OverView({isOpen:true}));//鹰眼
+        
+
+                 });
+
+     //var  districtSearch = new AMap.DistrictSearch();
+     //     districtSearch.setLevel('country');
+    //      districtSearch.setSubDistrict(1);
+
+    </script>
+  </body>
+</html>
